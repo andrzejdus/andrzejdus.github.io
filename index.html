@@ -10,231 +10,173 @@
 
         body {
             background: #08080f;
-            color: #d0d0d0;
+            color: #c8b8e8;
             font-family: 'Share Tech Mono', 'Courier New', monospace;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
+            padding: 48px 32px;
+            max-width: 720px;
+            margin: 0 auto;
         }
 
-        /* Scanlines */
-        body::before {
+        /* Subtle scanlines */
+        body::after {
             content: '';
             position: fixed;
             inset: 0;
             background: repeating-linear-gradient(
                 0deg,
                 transparent,
-                transparent 2px,
-                rgba(0,0,0,0.12) 2px,
-                rgba(0,0,0,0.12) 4px
+                transparent 3px,
+                rgba(0, 0, 0, 0.08) 3px,
+                rgba(0, 0, 0, 0.08) 4px
             );
             pointer-events: none;
             z-index: 999;
         }
 
-        .terminal {
-            width: 100%;
-            max-width: 680px;
-            border: 1px solid #ff2d78;
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow:
-                0 0 0 1px #1a0020,
-                0 0 40px rgba(255, 45, 120, 0.25),
-                0 0 80px rgba(0, 240, 255, 0.08);
-        }
+        .line { margin-bottom: 6px; }
+        .gap  { margin-bottom: 28px; }
+        .gap2 { margin-bottom: 48px; }
 
-        /* Title bar */
-        .titlebar {
-            background: #110818;
-            border-bottom: 1px solid #2a0030;
-            padding: 9px 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .dot {
-            width: 11px; height: 11px;
-            border-radius: 50%;
-        }
-        .dot-1 { background: #ff2d78; box-shadow: 0 0 6px #ff2d78; }
-        .dot-2 { background: #b44fff; box-shadow: 0 0 6px #b44fff; }
-        .dot-3 { background: #00f0ff; box-shadow: 0 0 6px #00f0ff; }
-        .titlebar-label {
-            margin: 0 auto;
-            color: #3a2040;
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        /* Body */
-        .body {
-            background: #08080f;
-            padding: 36px 44px 40px;
-        }
-
-        /* Typography */
-        .prompt  { color: #b44fff; }
-        .cmd     { color: #00f0ff; }
+        .prompt { color: #b44fff; }
+        .cmd    { color: #00f0ff; }
+        .dim    { color: #3a2850; }
 
         h1 {
-            font-size: 30px;
+            font-size: 28px;
             font-weight: normal;
             color: #ff2d78;
-            letter-spacing: 4px;
-            text-shadow: 0 0 24px rgba(255, 45, 120, 0.6);
-            margin: 6px 0 4px;
+            letter-spacing: 5px;
+            text-shadow: 0 0 30px rgba(255, 45, 120, 0.5);
+            margin: 8px 0 4px;
         }
 
-        .tagline {
-            color: #6030a0;
+        .subtitle {
+            color: #5a3870;
             font-size: 12px;
-            letter-spacing: 3px;
-            margin-bottom: 36px;
+            letter-spacing: 4px;
         }
 
-        hr {
-            border: none;
-            border-top: 1px solid #180820;
-            margin: 22px 0;
+        .section-cmd {
+            margin-top: 36px;
+            margin-bottom: 16px;
         }
 
-        /* Sections */
-        .section { margin: 22px 0 22px 0; }
+        .entry {
+            margin-bottom: 18px;
+        }
 
-        .section-title {
+        .entry-label {
             color: #00f0ff;
             font-size: 11px;
             letter-spacing: 3px;
-            text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
         }
 
-        .section-text {
-            color: #a898b8;
-            font-size: 13.5px;
-            line-height: 1.7;
-            padding-left: 18px;
-            border-left: 2px solid #2a0040;
+        .entry-text {
+            color: #8878a8;
+            font-size: 13px;
+            line-height: 1.75;
+            padding-left: 14px;
         }
 
-        .section-text em {
-            color: #d0c0e8;
+        .entry-text em {
+            color: #c8b8e8;
             font-style: normal;
         }
 
-        /* Links */
-        .links-line {
-            margin-top: 34px;
+        .divider {
+            color: #1a0828;
+            margin: 32px 0;
+            letter-spacing: 2px;
         }
 
         .links {
-            margin-top: 10px;
+            margin-top: 16px;
             display: flex;
-            gap: 20px;
+            gap: 28px;
             flex-wrap: wrap;
         }
 
         a {
-            color: #00f0ff;
+            color: #b44fff;
             text-decoration: none;
             font-size: 13px;
             letter-spacing: 1px;
             transition: color 0.15s, text-shadow 0.15s;
         }
-        a::before { content: '[ '; color: #2a2040; }
-        a::after  { content: ' ]'; color: #2a2040; }
         a:hover {
             color: #ff2d78;
-            text-shadow: 0 0 12px rgba(255, 45, 120, 0.6);
+            text-shadow: 0 0 10px rgba(255, 45, 120, 0.5);
         }
 
-        /* Cursor */
         .cursor {
             display: inline-block;
             width: 9px;
-            height: 16px;
-            background: #ff2d78;
-            margin-left: 4px;
+            height: 15px;
+            background: #b44fff;
+            margin-left: 2px;
             vertical-align: middle;
-            box-shadow: 0 0 8px rgba(255, 45, 120, 0.8);
-            animation: blink 1s step-end infinite;
+            box-shadow: 0 0 8px rgba(180, 79, 255, 0.7);
+            animation: blink 1.1s step-end infinite;
         }
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50%       { opacity: 0; }
         }
 
-        /* Responsive */
         @media (max-width: 480px) {
-            .body { padding: 24px 22px 28px; }
+            body { padding: 32px 20px; }
             h1 { font-size: 22px; }
         }
     </style>
 </head>
 <body>
-<div class="terminal">
 
-    <div class="titlebar">
-        <div class="dot dot-1"></div>
-        <div class="dot dot-2"></div>
-        <div class="dot dot-3"></div>
-        <span class="titlebar-label">andrzejdus ~ whoami</span>
-    </div>
+<div class="line dim">─────────────────────────────────────────</div>
+<div class="line gap"><span class="prompt">$ </span><span class="cmd">whoami</span></div>
 
-    <div class="body">
+<h1>ANDRZEJ DUŚ</h1>
+<div class="subtitle gap2">builder · engineer · hacker</div>
 
-        <div><span class="prompt">$ </span><span class="cmd">whoami</span></div>
-        <h1>ANDRZEJ DUŚ</h1>
-        <div class="tagline">builder &nbsp;·&nbsp; engineer &nbsp;·&nbsp; hacker</div>
+<div class="line section-cmd"><span class="prompt">$ </span><span class="cmd">cat about.txt</span></div>
 
-        <hr>
-
-        <div><span class="prompt">$ </span><span class="cmd">cat what-i-do.txt</span></div>
-
-        <div class="section">
-            <div class="section-title">// AI AGENTS</div>
-            <div class="section-text">
-                I build agents that <em>learn from context</em>,<br>
-                remember what matters, and act on their own.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">// ENGINEERING TEAMS</div>
-            <div class="section-text">
-                I grow software teams around one principle —<br>
-                <em>code you can still read in five years</em>.
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">// ELECTRONICS HACKING</div>
-            <div class="section-text">
-                If it has a circuit, it's worth saving.<br>
-                <em>Old hardware deserves a second life.</em>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="links-line">
-            <div><span class="prompt">$ </span><span class="cmd">ls ./links/</span></div>
-            <div class="links">
-                <a href="https://github.com/andrzejdus" target="_blank" rel="noopener">github</a>
-                <a href="https://www.linkedin.com/in/andrzejdus/" target="_blank" rel="noopener">linkedin</a>
-            </div>
-        </div>
-
-        <div style="margin-top: 28px;">
-            <span class="prompt">$ </span><span class="cursor"></span>
-        </div>
-
+<div class="entry">
+    <div class="entry-label">// AI AGENTS</div>
+    <div class="entry-text">
+        I build agents that <em>learn from context</em>,<br>
+        remember what matters, and act on their own.
     </div>
 </div>
+
+<div class="entry">
+    <div class="entry-label">// ENGINEERING TEAMS</div>
+    <div class="entry-text">
+        I grow software teams around one principle —<br>
+        <em>code you can still read in five years</em>.
+    </div>
+</div>
+
+<div class="entry">
+    <div class="entry-label">// ELECTRONICS HACKING</div>
+    <div class="entry-text">
+        If it has a circuit, it's worth saving.<br>
+        <em>Old hardware deserves a second life.</em>
+    </div>
+</div>
+
+<div class="divider">─────────────────────────────────────────</div>
+
+<div class="line"><span class="prompt">$ </span><span class="cmd">ls ./links/</span></div>
+<div class="links">
+    <a href="https://github.com/andrzejdus" target="_blank" rel="noopener">github.com/andrzejdus</a>
+    <a href="https://www.linkedin.com/in/andrzejdus/" target="_blank" rel="noopener">linkedin/andrzejdus</a>
+</div>
+
+<div style="margin-top: 36px;">
+    <span class="prompt">$ </span><span class="cursor"></span>
+</div>
+
 </body>
 </html>
